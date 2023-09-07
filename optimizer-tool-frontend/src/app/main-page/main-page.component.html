@@ -1,0 +1,97 @@
+<div class="main-page__window">
+  <div style="display: flex; flex-direction: row; justify-content: space-around">
+      <button
+        (click)="onPrev()"
+         class="main-page__button"
+        [disabled]="disablePageButtons"
+        >
+        < Prev
+      </button>
+
+  
+    {{index}}
+
+      <button
+        class="main-page__button"
+        (click)="onNext()"
+        [disabled]="disablePageButtons"
+        >
+        Next >
+      </button>
+
+  </div>
+<div id="cy" style="width: 100%; height: 100%; position: relative">
+  <div id="cyLabelContainer" class="main-page__frame" style="z-index: 10; overflow: scroll; position: absolute; width: 300px; max-height: 500px; display: none; padding-bottom: 24px;">
+    <div>
+      <h3 class="main-page__header">
+        Node Details
+      </h3>
+  </div>
+  <div class="main-page__data-bottom-header">
+    <span class="main-page__control-description"> 
+    Attribute
+    </span>
+   <span class="main-page__control-description">
+     Value
+   </span>
+  </div>
+  <div *ngFor="let item of nodeData"class="main-page__data-bottom">
+    <span class="main-page__control-description"> 
+    {{item.description}}
+    </span>
+   <span class="main-page__control-description">
+     {{item.value}}
+   </span>
+  </div>
+  <div>
+    <h3 class="main-page__header" style="margin-top: 12px;">
+      Energy flow
+    </h3>
+  </div>
+  <div class="main-page__data-bottom-header">
+    <span class="main-page__control-description"> 
+    Edge
+    </span>
+   <span class="main-page__control-description">
+     Amount
+   </span>
+  </div>
+  <div *ngFor="let item of flowData"class="main-page__data-bottom">
+    <span class="main-page__control-description"> 
+    {{item.description}}
+    </span>
+   <span class="main-page__control-description">
+     {{item.value}}
+   </span>
+  </div >
+  <div *ngIf="isPlantBlock">
+          <div>
+        <h3 class="main-page__header" style="margin-top: 12px;">
+          Energy generation
+        </h3>
+      </div>
+      <div class="main-page__data-bottom-header">
+        <span class="main-page__control-description"> 
+        Block
+        </span>
+      <span class="main-page__control-description">
+        Amount
+      </span>
+      </div>
+      <div *ngFor="let item of generationData"class="main-page__data-bottom">
+        <span class="main-page__control-description"> 
+        {{item.description}}
+        </span>
+      <span class="main-page__control-description">
+        {{item.value}}
+      </span>
+      </div >
+  </div>
+    
+  
+  </div>
+  
+</div>
+
+</div>
+

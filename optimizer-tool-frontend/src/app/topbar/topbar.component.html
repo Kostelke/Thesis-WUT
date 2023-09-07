@@ -1,0 +1,185 @@
+<div class="topbar__window">
+  <div class="topbar__layout">
+  
+    <div>
+    <h4 class="topbar__header">
+      Optimization Tool settings
+    </h4>
+  </div>
+  
+  <div class="topbar__form">
+    <div style="display: flex; flex-direction: column; max-width: 40%;">    
+      <div class="topbar__data-input">
+        <span class="topbar__control-name"> 
+          Nodes
+        </span>
+        <div class="topbar__data-bottom">
+          <span class="topbar__control-description"> 
+            Upload list with energy demands for specific nodes in time periods
+          </span>
+          <label for="nodeUpload" class="topbar__file-upload">
+             Upload nodes
+        </label>
+            <input
+              #nodeUpload
+              id="nodeUpload"
+              (change)="onNodeSelected($event)"
+              accept="text/txt"
+              type="file"
+              style="display: none"
+            >
+        </div>
+      </div>
+
+ 
+        <div class="topbar__data-input">
+          <span class="topbar__control-name"> 
+            Edges
+          </span>
+          <div class="topbar__data-bottom">
+            <span class="topbar__control-description"> 
+              Upload list with power lines connecting nodes, along with their properties
+            </span>
+            <label for="edgeUpload" class="topbar__file-upload">
+              Upload edges
+          </label>
+              <input
+              #edgeUpload
+              id="edgeUpload"
+              (change)="onEdgeSelected($event)"
+              accept="text/txt"
+              type="file"
+                style="display: none"
+              >
+          </div>
+          </div>
+  
+
+    
+          <div class="topbar__data-input">
+            <span class="topbar__control-name"> 
+              Power plants
+            </span>
+            <div class="topbar__data-bottom">
+              <span class="topbar__control-description"> 
+                Upload list with power plants, their blocks and properties such as range of operation, voltage etc
+              </span>
+              <label for="plantUpload" class="topbar__file-upload">
+               Upload plants
+            </label>
+                <input
+                #plantUpload
+                id="plantUpload"
+                (change)="onPlantSelected($event)"
+                accept="text/txt"
+                type="file"
+                  style="display: none"
+                >
+            </div>
+          </div>
+        
+<!-- 
+      <div style="display: flex; flex-direction: column">
+        <label style="margin-bottom: 10px">
+          Input edge File
+        </label>
+        <input
+          #edgeUpload
+          (change)="onEdgeSelected($event)"
+          accept="text/txt"
+          type="file"
+        >
+      </div> -->
+      <!-- <div style="display: flex; flex-direction: column">
+        <label style="margin-bottom: 10px">
+          Input plant File
+        </label>
+        <input
+          #plantUpload
+          (change)="onPlantSelected($event)"
+          accept="text/txt"
+          type="file"
+        >-->
+
+    </div>
+    <div style="display: flex; flex-direction: column; max-width: 40%;">
+    <form
+      [formGroup]="_formGroup"
+      class="topbar__config">
+      
+
+      <div class="topbar__data-input">
+        <span class="topbar__control-name"> 
+          Calculation mode
+        </span>
+        <div class="topbar__data-bottom">
+          <span class="topbar__control-description"> 
+            Simple - all power plants are working constantly
+            Binary - power plants can be switched off
+            Complex - binary mode plus ramp in energy generation
+          </span>
+          <select
+          formControlName="mode"
+          class="topbar__select">
+          <option>
+            simple
+          </option>
+          <option>
+            binary
+          </option>
+          <option>
+            complex
+          </option>
+        </select>
+        </div>
+      </div>
+
+      <div class="topbar__data-input">
+        <span class="topbar__control-name"> 
+         Enforce strict energy flow rules
+        </span>
+        <div class="topbar__data-bottom">
+          <span class="topbar__control-description"> 
+            Used when model is infeasible - allows for energy shortages in nodes
+          </span>
+          <select
+          formControlName="enforce"
+          class="topbar__select">
+          <option>
+            True
+          </option>
+          <option>
+            False
+          </option>
+        </select>
+        </div>
+      </div>
+
+      <div class="topbar__data-input">
+        <span class="topbar__control-name"> 
+          Number of cycles
+        </span>
+        <div class="topbar__data-bottom">
+          <span class="topbar__control-description"> 
+            How many 1-hour cycle the simulation runs. Max is 24
+          </span>
+          <input
+          class="topbar__select"
+          formControlName="length"
+          type="number">
+        </div>
+      </div>
+    </form>
+  </div>
+  </div>
+  <div style="width: 100%; display: flex; justify-content: right;">
+    <button
+      (click)="send()"
+      [disabled]="!enable"
+      class="topbar__button"
+    >
+        {{resultButtonText}}
+    </button>
+  </div>
+</div>
+</div>

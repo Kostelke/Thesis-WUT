@@ -1,0 +1,98 @@
+.topbar {
+  &__window {
+    background-color: white;
+    //border: 1px solid black;
+    width: 94%;
+    margin: 10px 10px 10px 15px;
+    padding: 10px 10px 10px 15px;
+    box-shadow: 0 0 5px 0 grey, 0 12px 5px -8px grey;
+    border-radius: 10px;
+    position: relative;
+  }
+  &__layout {
+    display: flex;
+    flex-direction: column;
+  }
+  &__header {
+    font-size: 16px;
+    font-weight: bold;
+    color: #212121;
+  }
+  &__form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  &__config {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    font-size: 12px;
+    margin-top: 6px;
+    width: 600px;
+  }
+  &__file-input {
+    margin-top: 6px;
+    display: flex;
+    flex-direction: row;
+  }
+  &__select {
+    width: 96px;
+    height: 24px;
+  }
+  &__control-name {
+    font-weight: bold;
+    border-bottom: 2px #e6e1e1 solid;
+    color: #212121;
+    padding: 0px 10px;
+  }
+  &__control-description {
+    color: #212121;
+    max-width: 30%;
+  }
+  &__data-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+  }
+  &__data-bottom {
+    padding: 0px 10px;
+    margin-top: 6px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    white-space: nowrap;
+    border-radius: 20px;
+    color: white;
+    background-color: #2255d6;
+    font-weight: bold;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__button {
+    display: inline-block;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: white;
+    background-color: #2255d6;
+    font-weight: bold;
+    height: 36px;
+  }
+}
+label,
+span {
+  font-size: 12px !important;
+}
